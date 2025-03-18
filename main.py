@@ -1,4 +1,7 @@
+from ensurepip import bootstrap
+
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.fields.simple import SubmitField, PasswordField
@@ -16,6 +19,7 @@ class LoginForm(FlaskForm):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('CSFR_SECRET_KEY')
+bootstrap = Bootstrap(app)
 
 
 @app.route("/")
